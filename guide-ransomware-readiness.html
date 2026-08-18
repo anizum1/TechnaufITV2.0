@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ransomware readiness for small businesses: the 9 controls that actually matter — Technauf</title>
+<meta name="description" content="The short list of ransomware controls that genuinely reduce risk for a 20-200 person business, in the order our engineers deploy them.">
+<link rel="canonical" href="https://www.technauf.com/guide-ransomware-readiness.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ransomware readiness for small businesses: the 9 controls that actually matter — Technauf">
+<meta property="og:description" content="The short list of ransomware controls that genuinely reduce risk for a 20-200 person business, in the order our engineers deploy them.">
+<meta property="og:url" content="https://www.technauf.com/guide-ransomware-readiness.html">
+<meta property="og:site_name" content="Technauf">
+<meta property="og:image" content="https://www.technauf.com/assets/technauf-horizontal.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 380'%3E%3Cg stroke='%232f7fff' stroke-width='34' stroke-linecap='round' fill='none'%3E%3Cpath d='M150 300 H370 C438 300 478 254 478 208 C478 166 448 134 410 128 C400 82 356 50 310 55 C272 59 242 84 230 118'/%3E%3Cpath d='M40 178 H295 M20 222 H240 M55 262 H290'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+  "@id": "https://www.technauf.com/#organization",
+  "name": "Technauf",
+  "alternateName": "Technauf Cloud and Managed IT Services",
+  "description": "Cloud, cybersecurity, network infrastructure, and managed IT services for businesses across the Dallas\u2013Fort Worth metroplex.",
+  "url": "https://www.technauf.com/",
+  "logo": "https://www.technauf.com/assets/technauf-horizontal.png",
+  "image": "https://www.technauf.com/assets/technauf-horizontal.png",
+  "email": "info@technauf.com",
+  "foundingDate": "2019",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Plano",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Plano"},
+    {"@type": "City", "name": "Dallas"},
+    {"@type": "City", "name": "Fort Worth"},
+    {"@type": "City", "name": "Frisco"},
+    {"@type": "City", "name": "McKinney"},
+    {"@type": "City", "name": "Arlington"},
+    {"@type": "City", "name": "Irving"},
+    {"@type": "AdministrativeArea", "name": "Dallas\u2013Fort Worth metroplex"}
+  ],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "08:00",
+    "closes": "18:00"
+  }],
+  "knowsAbout": ["Cloud migration", "Cybersecurity", "Network infrastructure", "Managed IT services", "Disaster recovery", "HIPAA compliance", "SOC 2"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Managed IT Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cloud Solutions"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cybersecurity"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Network Infrastructure"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Infrastructure & Servers"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "IT Consulting"}}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Ransomware readiness for small businesses: the 9 controls that actually matter",
+  "description": "The short list of ransomware controls that genuinely reduce risk for a 20-200 person business, in the order our engineers deploy them.",
+  "datePublished": "2026-06-18",
+  "author": {"@type": "Organization", "name": "Technauf"},
+  "publisher": {"@id": "https://www.technauf.com/#organization"},
+  "mainEntityOfPage": "https://www.technauf.com/guide-ransomware-readiness.html"
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Technauf — Cloud and Managed IT Services, home">
+      <svg class="logo-mark logo-anim" viewBox="0 0 520 380" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="lgNav" x1="0" y1="0" x2="520" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#2f7fff"/><stop offset="1" stop-color="#3fd9e8"/>
+          </linearGradient>
+        </defs>
+        <g stroke="url(#lgNav)">
+          <path class="cloud-path" d="M150 300 H370 C 438 300 478 254 478 208 C 478 166 448 134 410 128 C 400 82 356 50 310 55 C 272 59 242 84 230 118"/>
+          <path class="speed-line" d="M40 178 H160 M205 178 H295"/>
+          <path class="speed-line" d="M20 222 H130 M175 222 H240"/>
+          <path class="speed-line" d="M55 262 H170 M215 262 H290"/>
+        </g>
+        <g fill="url(#lgNav)">
+          <circle cx="40" cy="178" r="18"/><circle cx="20" cy="222" r="18"/><circle cx="55" cy="262" r="18"/>
+          <circle cx="428" cy="52" r="14"/><circle cx="470" cy="86" r="22"/>
+        </g>
+      </svg>
+      <span class="logo-text">
+        <span class="logo-word">TECHNAUF</span>
+        <span class="logo-sub">Cloud and Managed IT Services</span>
+      </span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="resources.html" class="active">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="btn btn-primary nav-cta">Book a consultation</a>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<article class="post">
+  <header class="post-head">
+    <div class="wrap-narrow">
+      <a class="post-back" href="resources.html">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        All resources
+      </a>
+      <span class="res-tag">Security</span>
+      <h1>Ransomware readiness for small businesses: the 9 controls that actually matter</h1>
+      <p class="post-lede">Most ransomware guidance is written for enterprises with a security team. If you have 20–200 staff and no dedicated security hire, here is the list that actually moves your risk — in the order we deploy it.</p>
+      <div class="post-meta"><span>Technauf engineering</span><span>·</span><span>11 min read</span></div>
+    </div>
+  </header>
+
+  <div class="wrap-narrow post-body">
+    <h2>Why the order matters</h2>
+    <p>Every ransomware checklist you find online is technically correct and practically useless, because it lists forty controls with no sense of which ones stop an actual attack. In the incidents we have worked, the same small handful of gaps show up again and again.</p>
+    <p>The nine below are ordered by how much risk they remove per dollar and per hour of effort. If you only get through the first four, you have still closed the majority of the paths we see used in real attacks.</p>
+
+    <h2>1. Multi-factor authentication on every account — including admins</h2>
+    <p>This is the single highest-value control, and it is the one most often half-implemented. We routinely find businesses with MFA on staff mailboxes but not on the administrator accounts that could reconfigure the whole tenant.</p>
+    <div class="callout"><p>Service accounts and break-glass admin accounts are the ones attackers look for precisely because they are so often exempted. If an account cannot use standard MFA, it needs compensating controls — not an exemption and a shrug.</p></div>
+
+    <h2>2. Backups that are immutable and actually tested</h2>
+    <p>Modern ransomware deletes or encrypts backups first. A backup that the same compromised admin credentials can delete is not a backup — it is a copy.</p>
+    <p>What good looks like:</p>
+    <ul>
+      <li>Off-site copies with immutable retention that cannot be deleted within the retention window</li>
+      <li>Restores tested quarterly with a written result, not assumed to work</li>
+      <li>At least one copy outside the identity system that a domain compromise would reach</li>
+    </ul>
+
+    <h2>3. Endpoint detection and response, not legacy antivirus</h2>
+    <p>Signature-based antivirus catches known malware. Ransomware operators use living-off-the-land techniques and freshly compiled payloads specifically to defeat it. EDR watches behaviour instead — mass file encryption looks abnormal regardless of what binary is doing it.</p>
+    <p>The capability that matters most in practice is automatic isolation: when a device starts behaving like it is encrypting a share, it gets pulled off the network within seconds, not after someone reads an alert email.</p>
+
+    <h2>4. Patch the things that face the internet, fast</h2>
+    <p>You do not need perfect patch coverage everywhere. You need ruthless patching of anything internet-facing: VPN appliances, firewalls, remote access gateways, and public web applications.</p>
+    <ol>
+      <li>Inventory everything with a public IP or an inbound port</li>
+      <li>Set a hard SLA — critical patches on internet-facing systems within 72 hours</li>
+      <li>Track exceptions in writing, with a compensating control and a review date</li>
+    </ol>
+
+    <h2>5. Remove standing administrative rights</h2>
+    <p>If everyday user accounts have local administrator rights, a single successful phish gives the attacker everything that account can reach. Removing standing admin rights is disruptive for about two weeks and then nobody notices.</p>
+
+    <h2>6. Segment the network so one machine is not the whole company</h2>
+    <p>Flat networks are why a single infected laptop in reception becomes a company-wide outage. Warehouse scanners, guest Wi-Fi, CCTV, and finance workstations have no business being able to reach each other directly.</p>
+
+    <h2>7. Turn on and centralise logging before you need it</h2>
+    <p>After an incident, the first question your insurer and your lawyers will ask is what the attacker accessed. Without centralised logs retained beyond the attacker's dwell time, the honest answer is that you cannot tell — and you will likely have to notify as though everything was taken.</p>
+
+    <h2>8. Train people on the attacks they will actually see</h2>
+    <p>Annual hour-long compliance training changes nothing. Short, frequent, realistic phishing simulations do, because they build the reflex to hesitate on the specific kinds of messages your staff actually receive.</p>
+    <p>The metric worth tracking is not the click rate alone but the report rate — how many people flag the simulation. A workforce that reports quickly gives you the minutes that matter.</p>
+
+    <h2>9. Write the incident response plan while it is calm</h2>
+    <p>At 2am during a live incident, nobody is going to invent a good decision-making process. The plan does not need to be long — it needs to name who decides, who calls the insurer, who talks to staff, and where the offline copy of the plan lives.</p>
+    <div class="callout"><p>Keep a printed copy. We have worked incidents where the response plan itself was on the encrypted file share.</p></div>
+
+    <h2>Where most businesses actually are</h2>
+    <p>In our assessments across DFW, the typical 50-person business has items 1, 3, and 8 partially in place and nothing else. Closing items 2, 4, and 5 usually takes a few weeks and removes far more risk than any new product purchase.</p>
+
+    <div class="post-cta">
+      <h3>Want this checked on your environment?</h3>
+      <p>A free 30-minute assessment with a senior engineer covers every point above against your actual setup.</p>
+      <a href="contact.html#contact-form" class="btn btn-primary">Book a consultation
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</article>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo-block">
+        <a href="index.html" class="nav-logo" aria-label="Technauf — Cloud and Managed IT Services">
+          <svg class="logo-mark" viewBox="0 0 520 380" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="lgFoot" x1="0" y1="0" x2="520" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#2f7fff"/><stop offset="1" stop-color="#3fd9e8"/>
+          </linearGradient>
+        </defs>
+        <g stroke="url(#lgFoot)" stroke-width="26" stroke-linecap="round">
+          <path class="cloud-path" d="M150 300 H370 C 438 300 478 254 478 208 C 478 166 448 134 410 128 C 400 82 356 50 310 55 C 272 59 242 84 230 118"/>
+          <path class="speed-line" d="M40 178 H160 M205 178 H295"/>
+          <path class="speed-line" d="M20 222 H130 M175 222 H240"/>
+          <path class="speed-line" d="M55 262 H170 M215 262 H290"/>
+        </g>
+        <g fill="url(#lgFoot)">
+          <circle cx="40" cy="178" r="18"/><circle cx="20" cy="222" r="18"/><circle cx="55" cy="262" r="18"/>
+          <circle cx="428" cy="52" r="14"/><circle cx="470" cy="86" r="22"/>
+        </g>
+      </svg>
+          <span class="logo-text">
+            <span class="logo-word">TECHNAUF</span>
+            <span class="logo-sub">Cloud and Managed IT Services</span>
+          </span>
+        </a>
+        <p>Cloud, cybersecurity, network infrastructure, and managed IT for businesses across the Dallas–Fort Worth metroplex.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#cloud">Cloud Solutions</a></li>
+          <li><a href="services.html#security">Cybersecurity</a></li>
+          <li><a href="services.html#network">Network Infrastructure</a></li>
+          <li><a href="services.html#infrastructure">Servers &amp; Storage</a></li>
+          <li><a href="services.html#consulting">Consulting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="checklist.html">Free Security Checklist</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:info@technauf.com">info@technauf.com</a></li>
+          <li><p>Plano, Texas</p></li>
+        </ul>
+        <h5 style="margin-top:22px">Legal</h5>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Technauf. All rights reserved.</span>
+      <span>Proudly serving Dallas · Fort Worth · Plano · Frisco · Arlington · Irving</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/ui-sound.js"></script>
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

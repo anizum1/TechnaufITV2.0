@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backups that survive ransomware: a practical strategy — Technauf</title>
+<meta name="description" content="Why having backups and being able to restore are different claims, what 3-2-1-1-0 means in practice, and how to run a restore test that proves something.">
+<link rel="canonical" href="https://www.technauf.com/guide-backup-strategy.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Backups that survive ransomware: a practical strategy — Technauf">
+<meta property="og:description" content="Why having backups and being able to restore are different claims, what 3-2-1-1-0 means in practice, and how to run a restore test that proves something.">
+<meta property="og:url" content="https://www.technauf.com/guide-backup-strategy.html">
+<meta property="og:site_name" content="Technauf">
+<meta property="og:image" content="https://www.technauf.com/assets/technauf-horizontal.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 380'%3E%3Cg stroke='%232f7fff' stroke-width='34' stroke-linecap='round' fill='none'%3E%3Cpath d='M150 300 H370 C438 300 478 254 478 208 C478 166 448 134 410 128 C400 82 356 50 310 55 C272 59 242 84 230 118'/%3E%3Cpath d='M40 178 H295 M20 222 H240 M55 262 H290'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+  "@id": "https://www.technauf.com/#organization",
+  "name": "Technauf",
+  "alternateName": "Technauf Cloud and Managed IT Services",
+  "description": "Cloud, cybersecurity, network infrastructure, and managed IT services for businesses across the Dallas\u2013Fort Worth metroplex.",
+  "url": "https://www.technauf.com/",
+  "logo": "https://www.technauf.com/assets/technauf-horizontal.png",
+  "image": "https://www.technauf.com/assets/technauf-horizontal.png",
+  "email": "info@technauf.com",
+  "foundingDate": "2019",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Plano",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Plano"},
+    {"@type": "City", "name": "Dallas"},
+    {"@type": "City", "name": "Fort Worth"},
+    {"@type": "City", "name": "Frisco"},
+    {"@type": "City", "name": "McKinney"},
+    {"@type": "City", "name": "Arlington"},
+    {"@type": "City", "name": "Irving"},
+    {"@type": "AdministrativeArea", "name": "Dallas\u2013Fort Worth metroplex"}
+  ],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "08:00",
+    "closes": "18:00"
+  }],
+  "knowsAbout": ["Cloud migration", "Cybersecurity", "Network infrastructure", "Managed IT services", "Disaster recovery", "HIPAA compliance", "SOC 2"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Managed IT Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cloud Solutions"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cybersecurity"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Network Infrastructure"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Infrastructure & Servers"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "IT Consulting"}}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Backups that survive ransomware: a practical strategy",
+  "description": "Why having backups and being able to restore are different claims, what 3-2-1-1-0 means in practice, and how to run a restore test that proves something.",
+  "datePublished": "2026-07-09",
+  "author": {"@type": "Organization", "name": "Technauf"},
+  "publisher": {"@id": "https://www.technauf.com/#organization"},
+  "mainEntityOfPage": "https://www.technauf.com/guide-backup-strategy.html"
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Technauf — Cloud and Managed IT Services, home">
+      <svg class="logo-mark logo-anim" viewBox="0 0 520 380" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="lgNav" x1="0" y1="0" x2="520" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#2f7fff"/><stop offset="1" stop-color="#3fd9e8"/>
+          </linearGradient>
+        </defs>
+        <g stroke="url(#lgNav)">
+          <path class="cloud-path" d="M150 300 H370 C 438 300 478 254 478 208 C 478 166 448 134 410 128 C 400 82 356 50 310 55 C 272 59 242 84 230 118"/>
+          <path class="speed-line" d="M40 178 H160 M205 178 H295"/>
+          <path class="speed-line" d="M20 222 H130 M175 222 H240"/>
+          <path class="speed-line" d="M55 262 H170 M215 262 H290"/>
+        </g>
+        <g fill="url(#lgNav)">
+          <circle cx="40" cy="178" r="18"/><circle cx="20" cy="222" r="18"/><circle cx="55" cy="262" r="18"/>
+          <circle cx="428" cy="52" r="14"/><circle cx="470" cy="86" r="22"/>
+        </g>
+      </svg>
+      <span class="logo-text">
+        <span class="logo-word">TECHNAUF</span>
+        <span class="logo-sub">Cloud and Managed IT Services</span>
+      </span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="resources.html" class="active">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="btn btn-primary nav-cta">Book a consultation</a>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<article class="post">
+  <header class="post-head">
+    <div class="wrap-narrow">
+      <a class="post-back" href="resources.html">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        All resources
+      </a>
+      <span class="res-tag">Operations</span>
+      <h1>Backups that survive ransomware: a practical strategy</h1>
+      <p class="post-lede">Nearly every business we assess says it has backups. Far fewer can say when they last restored from one. That gap is where ransomware recoveries go wrong.</p>
+      <div class="post-meta"><span>Technauf engineering</span><span>·</span><span>8 min read</span></div>
+    </div>
+  </header>
+
+  <div class="wrap-narrow post-body">
+    <h2>"We have backups" is not the claim that matters</h2>
+    <p>The claim that matters is: we can restore this specific system, to this point in time, within this many hours, and we have proven it recently. Almost nobody can make that claim without preparation — and the middle of an incident is a poor time to find out.</p>
+    <p>Backup jobs that report success routinely turn out to have been silently skipping the database, or backing up to a share the attacker also encrypted.</p>
+
+    <h2>3-2-1, and the two extra digits worth adding</h2>
+    <p>The classic rule is three copies of your data, on two different media types, with one copy off-site. Ransomware pushed the industry to extend it:</p>
+    <ul>
+      <li><strong>3</strong> copies of the data</li>
+      <li><strong>2</strong> different media or platforms</li>
+      <li><strong>1</strong> copy off-site</li>
+      <li><strong>1</strong> copy immutable or offline — cannot be altered or deleted within its retention window, even with valid admin credentials</li>
+      <li><strong>0</strong> errors on the last verified restore test</li>
+    </ul>
+    <p>The final two are what turn a backup strategy into a ransomware strategy. Modern attackers hunt for backup infrastructure first and delete what they find, using the same administrator credentials your backup software uses.</p>
+
+    <h2>Immutability is the control that actually stops the attack</h2>
+    <p>If your backups live on a share reachable with domain credentials, they are not a separate line of defence — they are part of the same environment being attacked. Immutable storage enforces retention at the storage layer, so a delete request is refused regardless of who makes it.</p>
+    <div class="callout"><p>Ask your provider a direct question: if an attacker had our domain administrator password right now, could they delete our backups? If the answer is anything other than a confident no, that is the gap.</p></div>
+
+    <h2>Set recovery objectives before choosing technology</h2>
+    <p>Two numbers drive every backup decision, and both are business decisions rather than technical ones:</p>
+    <ul>
+      <li><strong>RPO</strong> — how much data you can afford to lose, which sets backup frequency</li>
+      <li><strong>RTO</strong> — how long you can afford to be down, which sets recovery method</li>
+    </ul>
+    <p>A business that can lose a day of data and be down for two days needs something very different from a medical practice that can afford neither. Deciding these first prevents both overspending and nasty surprises.</p>
+
+    <h2>What a real restore test looks like</h2>
+    <p>Confirming that a backup job reported success is monitoring, not testing. A restore test means actually recovering something and verifying it works:</p>
+    <ol>
+      <li>Pick a real system — rotate through them across the year, prioritising the ones the business cannot operate without</li>
+      <li>Restore it to an isolated environment, not over the top of production</li>
+      <li>Have someone who uses that system daily confirm the data is complete and current</li>
+      <li>Record how long the whole thing took, start to finish</li>
+      <li>Write down what went wrong, because something always does the first time</li>
+    </ol>
+    <p>That recorded duration is your real RTO. It is almost always longer than anyone assumed, and knowing the true number is the entire point of the exercise.</p>
+
+    <h2>The gaps we find most often</h2>
+    <ul>
+      <li>Backups running to a network share that is reachable — and therefore encryptable — from any infected workstation</li>
+      <li>Cloud platforms such as Microsoft 365 assumed to be backed up by the provider; retention policies are not backups</li>
+      <li>The backup job succeeding for years while silently excluding a database added after it was configured</li>
+      <li>No off-site copy, because the off-site step failed quietly eighteen months ago</li>
+      <li>Documentation for restoring stored on the file server that would need restoring</li>
+    </ul>
+
+    <h2>A reasonable place to start</h2>
+    <p>If you do nothing else this quarter: confirm one copy is immutable, restore one important system end to end, and write down how long it took. Those three actions will tell you more about your actual resilience than any amount of dashboard-watching.</p>
+
+    <div class="post-cta">
+      <h3>Want this checked on your environment?</h3>
+      <p>A free 30-minute assessment with a senior engineer covers every point above against your actual setup.</p>
+      <a href="contact.html#contact-form" class="btn btn-primary">Book a consultation
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</article>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo-block">
+        <a href="index.html" class="nav-logo" aria-label="Technauf — Cloud and Managed IT Services">
+          <svg class="logo-mark" viewBox="0 0 520 380" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="lgFoot" x1="0" y1="0" x2="520" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#2f7fff"/><stop offset="1" stop-color="#3fd9e8"/>
+          </linearGradient>
+        </defs>
+        <g stroke="url(#lgFoot)" stroke-width="26" stroke-linecap="round">
+          <path class="cloud-path" d="M150 300 H370 C 438 300 478 254 478 208 C 478 166 448 134 410 128 C 400 82 356 50 310 55 C 272 59 242 84 230 118"/>
+          <path class="speed-line" d="M40 178 H160 M205 178 H295"/>
+          <path class="speed-line" d="M20 222 H130 M175 222 H240"/>
+          <path class="speed-line" d="M55 262 H170 M215 262 H290"/>
+        </g>
+        <g fill="url(#lgFoot)">
+          <circle cx="40" cy="178" r="18"/><circle cx="20" cy="222" r="18"/><circle cx="55" cy="262" r="18"/>
+          <circle cx="428" cy="52" r="14"/><circle cx="470" cy="86" r="22"/>
+        </g>
+      </svg>
+          <span class="logo-text">
+            <span class="logo-word">TECHNAUF</span>
+            <span class="logo-sub">Cloud and Managed IT Services</span>
+          </span>
+        </a>
+        <p>Cloud, cybersecurity, network infrastructure, and managed IT for businesses across the Dallas–Fort Worth metroplex.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#cloud">Cloud Solutions</a></li>
+          <li><a href="services.html#security">Cybersecurity</a></li>
+          <li><a href="services.html#network">Network Infrastructure</a></li>
+          <li><a href="services.html#infrastructure">Servers &amp; Storage</a></li>
+          <li><a href="services.html#consulting">Consulting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="checklist.html">Free Security Checklist</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:info@technauf.com">info@technauf.com</a></li>
+          <li><p>Plano, Texas</p></li>
+        </ul>
+        <h5 style="margin-top:22px">Legal</h5>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Technauf. All rights reserved.</span>
+      <span>Proudly serving Dallas · Fort Worth · Plano · Frisco · Arlington · Irving</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/ui-sound.js"></script>
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

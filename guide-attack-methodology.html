@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How attackers actually get in: the methods behind recent breaches — Technauf</title>
+<meta name="description" content="A defensive walkthrough of the intrusion methods driving real incidents — MFA fatigue, help-desk social engineering, infostealers, supply-chain compromise, and double extortion — and how to break each one.">
+<link rel="canonical" href="https://www.technauf.com/guide-attack-methodology.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How attackers actually get in: the methods behind recent breaches — Technauf">
+<meta property="og:description" content="A defensive walkthrough of the intrusion methods driving real incidents — MFA fatigue, help-desk social engineering, infostealers, supply-chain compromise, and double extortion — and how to break each one.">
+<meta property="og:url" content="https://www.technauf.com/guide-attack-methodology.html">
+<meta property="og:site_name" content="Technauf">
+<meta property="og:image" content="https://www.technauf.com/assets/technauf-horizontal.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 380'%3E%3Cg stroke='%232f7fff' stroke-width='34' stroke-linecap='round' fill='none'%3E%3Cpath d='M150 300 H370 C438 300 478 254 478 208 C478 166 448 134 410 128 C400 82 356 50 310 55 C272 59 242 84 230 118'/%3E%3Cpath d='M40 178 H295 M20 222 H240 M55 262 H290'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+  "@id": "https://www.technauf.com/#organization",
+  "name": "Technauf",
+  "alternateName": "Technauf Cloud and Managed IT Services",
+  "description": "Cloud, cybersecurity, network infrastructure, and managed IT services for businesses across the Dallas\u2013Fort Worth metroplex.",
+  "url": "https://www.technauf.com/",
+  "logo": "https://www.technauf.com/assets/technauf-horizontal.png",
+  "image": "https://www.technauf.com/assets/technauf-horizontal.png",
+  "email": "info@technauf.com",
+  "foundingDate": "2019",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Plano",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Plano"},
+    {"@type": "City", "name": "Dallas"},
+    {"@type": "City", "name": "Fort Worth"},
+    {"@type": "City", "name": "Frisco"},
+    {"@type": "City", "name": "McKinney"},
+    {"@type": "City", "name": "Arlington"},
+    {"@type": "City", "name": "Irving"},
+    {"@type": "AdministrativeArea", "name": "Dallas\u2013Fort Worth metroplex"}
+  ],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "08:00",
+    "closes": "18:00"
+  }],
+  "knowsAbout": ["Cloud migration", "Cybersecurity", "Network infrastructure", "Managed IT services", "Disaster recovery", "HIPAA compliance", "SOC 2"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Managed IT Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cloud Solutions"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cybersecurity"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Network Infrastructure"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Infrastructure & Servers"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "IT Consulting"}}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How attackers actually get in: the methods behind recent breaches",
+  "description": "A defensive walkthrough of the intrusion methods driving real incidents — MFA fatigue, help-desk social engineering, infostealers, supply-chain compromise, and double extortion — and how to break each one.",
+  "datePublished": "2026-08-06",
+  "author": {"@type": "Organization", "name": "Technauf"},
+  "publisher": {"@id": "https://www.technauf.com/#organization"},
+  "mainEntityOfPage": "https://www.technauf.com/guide-attack-methodology.html"
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Technauf — Cloud and Managed IT Services, home">
+      <svg class="logo-mark logo-anim" viewBox="0 0 520 380" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="lgNav" x1="0" y1="0" x2="520" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#2f7fff"/><stop offset="1" stop-color="#3fd9e8"/>
+          </linearGradient>
+        </defs>
+        <g stroke="url(#lgNav)">
+          <path class="cloud-path" d="M150 300 H370 C 438 300 478 254 478 208 C 478 166 448 134 410 128 C 400 82 356 50 310 55 C 272 59 242 84 230 118"/>
+          <path class="speed-line" d="M40 178 H160 M205 178 H295"/>
+          <path class="speed-line" d="M20 222 H130 M175 222 H240"/>
+          <path class="speed-line" d="M55 262 H170 M215 262 H290"/>
+        </g>
+        <g fill="url(#lgNav)">
+          <circle cx="40" cy="178" r="18"/><circle cx="20" cy="222" r="18"/><circle cx="55" cy="262" r="18"/>
+          <circle cx="428" cy="52" r="14"/><circle cx="470" cy="86" r="22"/>
+        </g>
+      </svg>
+      <span class="logo-text">
+        <span class="logo-word">TECHNAUF</span>
+        <span class="logo-sub">Cloud and Managed IT Services</span>
+      </span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="resources.html" class="active">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="btn btn-primary nav-cta">Book a consultation</a>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<article class="post">
+  <header class="post-head">
+    <div class="wrap-narrow">
+      <a class="post-back" href="resources.html">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        All resources
+      </a>
+      <span class="res-tag">Security</span>
+      <h1>How attackers actually get in: the methods behind recent breaches</h1>
+      <p class="post-lede">Most breaches do not begin with an exotic exploit. They begin with a valid login. This is a defender's walkthrough of the methods showing up in real incidents, why each one works, and the specific control that stops it.</p>
+      <div class="post-meta"><span>Technauf engineering</span><span>·</span><span>15 min read</span></div>
+    </div>
+  </header>
+
+  <div class="wrap-narrow post-body">
+    <h2>The shape of a modern intrusion</h2>
+    <p>Security teams describe intrusions in stages — gain access, establish persistence, escalate privilege, move laterally, locate valuable data, then act on it. What has changed in recent years is not the shape but the first stage. Attackers increasingly log in rather than break in, because stolen or coerced credentials are cheaper and quieter than exploiting software.</p>
+    <p>That matters for defence. If your entire security budget sits at the perimeter looking for malware, you will not see an adversary who arrived through your VPN with a valid username, password, and approved MFA prompt.</p>
+    <div class="callout"><p>This article describes attack patterns at the level a business owner needs to make defensive decisions. It deliberately contains no tooling, commands, or operational detail — the goal is recognition and prevention, not replication.</p></div>
+
+    <h2>Method 1 — MFA fatigue and push bombing</h2>
+    <p><strong>The pattern:</strong> the attacker already has a valid password, usually bought or harvested from an earlier breach. They trigger the multi-factor prompt repeatedly, often late at night, until the user approves one to make the notifications stop. Sometimes it is paired with a phone call impersonating IT, telling the user the prompts are a known glitch and to accept.</p>
+    <p><strong>Why it works:</strong> simple push approval asks a tired human a yes/no question with no context. There is nothing on screen indicating where the request came from.</p>
+    <p><strong>How to break it:</strong></p>
+    <ul>
+      <li>Switch from simple push approval to number matching, so the user must read a code from the screen they are actually logging into</li>
+      <li>Better still, move high-value accounts to phishing-resistant factors — hardware security keys or passkeys, which will not authenticate to a lookalike domain at all</li>
+      <li>Alert on repeated denied MFA prompts; a burst of denials is a live attack in progress, not a glitch</li>
+      <li>Tell staff explicitly that IT will never ask them to approve an unexpected prompt</li>
+    </ul>
+
+    <h2>Method 2 — Social engineering the help desk</h2>
+    <p><strong>The pattern:</strong> rather than attacking the employee, the attacker attacks the process that helps employees. They call the service desk impersonating a staff member locked out of their account, supply personal details gathered from social media and past breaches, and ask for a password reset or an MFA device re-enrolment.</p>
+    <p><strong>Why it works:</strong> help desks are measured on resolving tickets quickly and staffed by people whose job is to be helpful. Identity verification often relies on information that is not actually secret — date of birth, employee number, manager's name.</p>
+    <p><strong>How to break it:</strong></p>
+    <ul>
+      <li>Require verification that cannot be researched: a callback to the number already on file, or approval from the employee's manager</li>
+      <li>Treat MFA re-enrolment as a high-risk action requiring stronger proof than a password reset</li>
+      <li>Video verification for privileged accounts, where feasible</li>
+      <li>Run a social engineering test against your own help desk — this is the control most organisations have never tested</li>
+    </ul>
+
+    <h2>Method 3 — Infostealer malware and the credential resale market</h2>
+    <p><strong>The pattern:</strong> a user installs something that looks legitimate — a cracked application, a fake browser update, a poisoned search advertisement. It quietly harvests saved browser passwords and, critically, session cookies. Those get sold in bulk. A different attacker buys them later and walks in.</p>
+    <p><strong>Why session cookies matter:</strong> a stolen active session token can let an attacker resume an already-authenticated session, sidestepping the login — and therefore the MFA prompt — entirely. This is why 'we have MFA' is necessary but not sufficient.</p>
+    <p><strong>How to break it:</strong></p>
+    <ul>
+      <li>Bind sessions to device and network signals so a token replayed from elsewhere is rejected</li>
+      <li>Shorten session lifetimes for administrative and finance systems</li>
+      <li>Block unmanaged devices from reaching company data at all</li>
+      <li>Application allow-listing on endpoints, so unsigned software cannot simply run</li>
+      <li>Discourage browser password storage in favour of a managed password manager</li>
+    </ul>
+
+    <h2>Method 4 — Edge device exploitation</h2>
+    <p><strong>The pattern:</strong> internet-facing appliances — VPN concentrators, firewalls, file transfer systems, remote access gateways — get a published vulnerability. Mass scanning for unpatched instances begins within hours of disclosure, sometimes before a patch exists.</p>
+    <p><strong>Why it works:</strong> these devices sit outside normal patch cycles, often have no endpoint protection installed, and are exactly the systems nobody wants to reboot during business hours.</p>
+    <p><strong>How to break it:</strong></p>
+    <ul>
+      <li>Maintain an inventory of everything you expose to the internet — you cannot patch what you have not listed</li>
+      <li>Hard SLA of days, not months, for internet-facing patches, with an out-of-hours window pre-agreed</li>
+      <li>Subscribe to vendor advisories for every edge device you own</li>
+      <li>Assume compromise after a critical edge vulnerability: patching closes the door but does not evict anyone already inside</li>
+    </ul>
+
+    <h2>Method 5 — Third-party and supply-chain compromise</h2>
+    <p><strong>The pattern:</strong> the attacker cannot reach you easily, so they compromise something that already has access — a managed service provider, a software vendor whose product you install, or a smaller supplier with a trusted network connection into your environment.</p>
+    <p><strong>Why it works:</strong> trust relationships are rarely scoped tightly. A vendor granted access for one integration frequently ends up with far broader reach than that integration needs.</p>
+    <p><strong>How to break it:</strong></p>
+    <ul>
+      <li>Inventory every third party with access to your systems or data, and what exactly they can reach</li>
+      <li>Scope vendor access to the minimum, time-bound where possible, and revoke it when a project ends</li>
+      <li>Require MFA on vendor accounts, and monitor their activity as closely as your own staff's</li>
+      <li>Ask vendors for evidence of their security posture — a real report, not a marketing page</li>
+    </ul>
+
+    <h2>Method 6 — Double extortion ransomware</h2>
+    <p><strong>The pattern:</strong> before encrypting anything, the attacker spends time inside quietly copying data out. Then they encrypt, and the ransom demand covers both decryption and a promise not to publish what they took. Increasingly the encryption step is skipped entirely — theft and threatened publication alone are enough leverage.</p>
+    <p><strong>Why it changes your planning:</strong> excellent backups solve the encryption problem completely and the extortion problem not at all. If your incident plan assumes 'we restore and carry on', it is only half a plan — you still face a data breach with notification obligations.</p>
+    <p><strong>How to break it:</strong></p>
+    <ul>
+      <li>Monitor for unusual outbound data volume — exfiltration is the stage where detection is still cheap</li>
+      <li>Segment the network so one compromised machine cannot enumerate every file share</li>
+      <li>Immutable backups that cannot be deleted with stolen admin credentials</li>
+      <li>Write the extortion scenario into your incident plan explicitly, including legal counsel, insurer, and notification obligations</li>
+      <li>Encrypt sensitive data at rest so stolen files are worth less</li>
+    </ul>
+
+    <h2>The uncomfortable common thread</h2>
+    <p>Five of the six methods above involve no software exploit whatsoever. They involve a valid credential, a helpful human, or a trusted relationship. That is genuinely good news for smaller businesses, because the controls that break them are neither exotic nor expensive:</p>
+    <ol>
+      <li>Phishing-resistant MFA on every account that matters</li>
+      <li>Verified identity checks for password and MFA resets</li>
+      <li>Ruthless patching of anything internet-facing</li>
+      <li>Least-privilege access, reviewed regularly, for staff and vendors alike</li>
+      <li>Logging that would let you answer 'what did they touch' after the fact</li>
+      <li>Immutable, restore-tested backups plus a plan for the extortion case</li>
+    </ol>
+    <p>None of these require a security team. They require someone accountable for each line and a schedule for checking them.</p>
+
+    <h2>How to use this list</h2>
+    <p>Take it to whoever runs your IT — internal or outsourced — and ask them to mark each of the six methods as covered, partially covered, or not covered, with evidence. The gaps that come back are your roadmap, in priority order, without spending anything to find them.</p>
+
+    <div class="post-cta">
+      <h3>Want this checked on your environment?</h3>
+      <p>A free 30-minute assessment with a senior engineer covers every point above against your actual setup.</p>
+      <a href="contact.html#contact-form" class="btn btn-primary">Book a consultation
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</article>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo-block">
+        <a href="index.html" class="nav-logo" aria-label="Technauf — Cloud and Managed IT Services">
+          <svg class="logo-mark" viewBox="0 0 520 380" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="lgFoot" x1="0" y1="0" x2="520" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#2f7fff"/><stop offset="1" stop-color="#3fd9e8"/>
+          </linearGradient>
+        </defs>
+        <g stroke="url(#lgFoot)" stroke-width="26" stroke-linecap="round">
+          <path class="cloud-path" d="M150 300 H370 C 438 300 478 254 478 208 C 478 166 448 134 410 128 C 400 82 356 50 310 55 C 272 59 242 84 230 118"/>
+          <path class="speed-line" d="M40 178 H160 M205 178 H295"/>
+          <path class="speed-line" d="M20 222 H130 M175 222 H240"/>
+          <path class="speed-line" d="M55 262 H170 M215 262 H290"/>
+        </g>
+        <g fill="url(#lgFoot)">
+          <circle cx="40" cy="178" r="18"/><circle cx="20" cy="222" r="18"/><circle cx="55" cy="262" r="18"/>
+          <circle cx="428" cy="52" r="14"/><circle cx="470" cy="86" r="22"/>
+        </g>
+      </svg>
+          <span class="logo-text">
+            <span class="logo-word">TECHNAUF</span>
+            <span class="logo-sub">Cloud and Managed IT Services</span>
+          </span>
+        </a>
+        <p>Cloud, cybersecurity, network infrastructure, and managed IT for businesses across the Dallas–Fort Worth metroplex.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#cloud">Cloud Solutions</a></li>
+          <li><a href="services.html#security">Cybersecurity</a></li>
+          <li><a href="services.html#network">Network Infrastructure</a></li>
+          <li><a href="services.html#infrastructure">Servers &amp; Storage</a></li>
+          <li><a href="services.html#consulting">Consulting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="checklist.html">Free Security Checklist</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:info@technauf.com">info@technauf.com</a></li>
+          <li><p>Plano, Texas</p></li>
+        </ul>
+        <h5 style="margin-top:22px">Legal</h5>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Technauf. All rights reserved.</span>
+      <span>Proudly serving Dallas · Fort Worth · Plano · Frisco · Arlington · Irving</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/ui-sound.js"></script>
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

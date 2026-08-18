@@ -1,0 +1,8 @@
+# Technauf — https://www.technauf.com
+User-agent: *
+Allow: /
+
+# No crawl-sensitive areas on this static site.
+Disallow:
+
+Sitemap: https://www.technauf.com/sitemap.xml

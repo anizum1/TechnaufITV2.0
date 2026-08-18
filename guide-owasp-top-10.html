@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The OWASP Top 10, explained for business owners — Technauf</title>
+<meta name="description" content="A plain-English walkthrough of the OWASP Top 10 web application risks, what each looks like in practice, and who is responsible for fixing it.">
+<link rel="canonical" href="https://www.technauf.com/guide-owasp-top-10.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The OWASP Top 10, explained for business owners — Technauf">
+<meta property="og:description" content="A plain-English walkthrough of the OWASP Top 10 web application risks, what each looks like in practice, and who is responsible for fixing it.">
+<meta property="og:url" content="https://www.technauf.com/guide-owasp-top-10.html">
+<meta property="og:site_name" content="Technauf">
+<meta property="og:image" content="https://www.technauf.com/assets/technauf-horizontal.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 380'%3E%3Cg stroke='%232f7fff' stroke-width='34' stroke-linecap='round' fill='none'%3E%3Cpath d='M150 300 H370 C438 300 478 254 478 208 C478 166 448 134 410 128 C400 82 356 50 310 55 C272 59 242 84 230 118'/%3E%3Cpath d='M40 178 H295 M20 222 H240 M55 262 H290'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+  "@id": "https://www.technauf.com/#organization",
+  "name": "Technauf",
+  "alternateName": "Technauf Cloud and Managed IT Services",
+  "description": "Cloud, cybersecurity, network infrastructure, and managed IT services for businesses across the Dallas\u2013Fort Worth metroplex.",
+  "url": "https://www.technauf.com/",
+  "logo": "https://www.technauf.com/assets/technauf-horizontal.png",
+  "image": "https://www.technauf.com/assets/technauf-horizontal.png",
+  "email": "info@technauf.com",
+  "foundingDate": "2019",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Plano",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Plano"},
+    {"@type": "City", "name": "Dallas"},
+    {"@type": "City", "name": "Fort Worth"},
+    {"@type": "City", "name": "Frisco"},
+    {"@type": "City", "name": "McKinney"},
+    {"@type": "City", "name": "Arlington"},
+    {"@type": "City", "name": "Irving"},
+    {"@type": "AdministrativeArea", "name": "Dallas\u2013Fort Worth metroplex"}
+  ],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "08:00",
+    "closes": "18:00"
+  }],
+  "knowsAbout": ["Cloud migration", "Cybersecurity", "Network infrastructure", "Managed IT services", "Disaster recovery", "HIPAA compliance", "SOC 2"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Managed IT Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cloud Solutions"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cybersecurity"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Network Infrastructure"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Infrastructure & Servers"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "IT Consulting"}}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The OWASP Top 10, explained for business owners",
+  "description": "A plain-English walkthrough of the OWASP Top 10 web application risks, what each looks like in practice, and who is responsible for fixing it.",
+  "datePublished": "2026-07-30",
+  "author": {"@type": "Organization", "name": "Technauf"},
+  "publisher": {"@id": "https://www.technauf.com/#organization"},
+  "mainEntityOfPage": "https://www.technauf.com/guide-owasp-top-10.html"
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Technauf — Cloud and Managed IT Services, home">
+      <svg class="logo-mark logo-anim" viewBox="0 0 520 380" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="lgNav" x1="0" y1="0" x2="520" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#2f7fff"/><stop offset="1" stop-color="#3fd9e8"/>
+          </linearGradient>
+        </defs>
+        <g stroke="url(#lgNav)">
+          <path class="cloud-path" d="M150 300 H370 C 438 300 478 254 478 208 C 478 166 448 134 410 128 C 400 82 356 50 310 55 C 272 59 242 84 230 118"/>
+          <path class="speed-line" d="M40 178 H160 M205 178 H295"/>
+          <path class="speed-line" d="M20 222 H130 M175 222 H240"/>
+          <path class="speed-line" d="M55 262 H170 M215 262 H290"/>
+        </g>
+        <g fill="url(#lgNav)">
+          <circle cx="40" cy="178" r="18"/><circle cx="20" cy="222" r="18"/><circle cx="55" cy="262" r="18"/>
+          <circle cx="428" cy="52" r="14"/><circle cx="470" cy="86" r="22"/>
+        </g>
+      </svg>
+      <span class="logo-text">
+        <span class="logo-word">TECHNAUF</span>
+        <span class="logo-sub">Cloud and Managed IT Services</span>
+      </span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="resources.html" class="active">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="btn btn-primary nav-cta">Book a consultation</a>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<article class="post">
+  <header class="post-head">
+    <div class="wrap-narrow">
+      <a class="post-back" href="resources.html">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        All resources
+      </a>
+      <span class="res-tag">Security</span>
+      <h1>The OWASP Top 10, explained for business owners</h1>
+      <p class="post-lede">The OWASP Top 10 is the closest thing the industry has to a shared list of what actually goes wrong in web applications. Here is what each item means without the jargon — and which ones are your vendor's problem versus yours.</p>
+      <div class="post-meta"><span>Technauf engineering</span><span>·</span><span>14 min read</span></div>
+    </div>
+  </header>
+
+  <div class="wrap-narrow post-body">
+    <h2>What it is, and why you should care even if you don't build software</h2>
+    <p>The Open Worldwide Application Security Project publishes a periodically updated list of the ten most critical web application security risks, compiled from real-world vulnerability data. It has become the default reference point: auditors ask about it, cyber insurance questionnaires reference it, and enterprise customers put it in vendor security reviews.</p>
+    <p>If your business runs a customer portal, an e-commerce site, a booking system, or any internal web application — whether you built it or bought it — this list describes the ways it most commonly fails. You do not need to fix these yourself, but you do need to know enough to ask your developer or vendor the right questions.</p>
+    <div class="callout"><p>A note on version: OWASP revises the list every few years and the categories shift between editions. Confirm which edition your auditor or customer is asking about before you answer a questionnaire — the numbering is not stable across releases.</p></div>
+
+    <h2>1. Broken access control</h2>
+    <p>The application does not properly enforce what each user is allowed to see or do. In practice this is the customer who changes an invoice number in the URL and sees another customer's invoice, or the standard user who reaches an admin page simply by knowing its address.</p>
+    <p>It consistently ranks at or near the top because it is easy to get wrong and rarely caught by automated scanning — the software works exactly as coded, it just trusts the user too much.</p>
+    <p><strong>Ask your vendor:</strong> is authorisation checked on the server for every request, or does the interface just hide buttons the user shouldn't press?</p>
+
+    <h2>2. Cryptographic failures</h2>
+    <p>Sensitive data is not protected properly in transit or at rest: traffic served over plain HTTP, passwords stored with weak or no hashing, database backups sitting unencrypted, or encryption keys checked into the same repository as the code.</p>
+    <p><strong>Ask your vendor:</strong> how are our customers' records encrypted at rest, and where are the keys held?</p>
+
+    <h2>3. Injection</h2>
+    <p>Untrusted input gets interpreted as a command. The classic example is SQL injection, where text typed into a form is treated as part of a database query and can be used to read or destroy data. Cross-site scripting is the same failure in a different place — attacker-supplied text executed as code in another user's browser.</p>
+    <p>This is largely a solved problem technically: parameterised queries and proper output encoding prevent it. It persists because legacy code and rushed features skip them.</p>
+
+    <h2>4. Insecure design</h2>
+    <p>The application was built without thinking about how it could be abused. No amount of careful coding fixes a feature that was a bad idea — a password reset flow that only asks for a birthday, or a checkout that trusts a price submitted by the browser.</p>
+    <p>This is the category that requires business input, because only you know which workflows would be damaging if abused.</p>
+
+    <h2>5. Security misconfiguration</h2>
+    <p>Default credentials left in place, verbose error messages exposing internals, unnecessary features enabled, cloud storage buckets set to public, admin interfaces reachable from the internet. Not a coding flaw — a settings flaw, and one of the most common causes of real incidents.</p>
+    <p>This one overlaps heavily with what a managed IT provider should be handling for you.</p>
+
+    <h2>6. Vulnerable and outdated components</h2>
+    <p>Modern applications are assembled from hundreds of third-party libraries. When one has a published vulnerability and nobody updates it, your application inherits that vulnerability — and attackers scan the internet for exactly these known, unpatched versions.</p>
+    <p><strong>Ask your vendor:</strong> do you maintain a software bill of materials, and what is your SLA for patching a critical vulnerability in a dependency?</p>
+
+    <h2>7. Identification and authentication failures</h2>
+    <p>Weak login handling: no protection against automated password guessing, session tokens that never expire, credentials accepted from lists already leaked in other breaches, or multi-factor authentication that can be trivially bypassed.</p>
+    <p>The single highest-value fix here is enforcing MFA and checking passwords against known-breached lists.</p>
+
+    <h2>8. Software and data integrity failures</h2>
+    <p>The application trusts code or data from sources it cannot verify — an auto-update mechanism with no signature checking, or a build pipeline that pulls in unvetted dependencies. This is the category that covers supply-chain compromise, where attackers reach you by compromising something you install rather than attacking you directly.</p>
+
+    <h2>9. Security logging and monitoring failures</h2>
+    <p>The attack succeeds and nobody notices. Without adequate logging and someone actually reviewing it, breaches are typically discovered weeks or months later — often by an outside party rather than the victim.</p>
+    <p>This is the category businesses most consistently underinvest in, because it produces nothing visible until the day you desperately need it.</p>
+
+    <h2>10. Server-side request forgery</h2>
+    <p>The application can be tricked into making requests on the attacker's behalf, reaching internal systems that should never be exposed. Increasingly relevant in cloud environments, where an internal metadata service can hand out credentials to whoever asks from inside the network.</p>
+
+    <h2>Who is responsible for what</h2>
+    <p>Split the list into three buckets and the ownership question becomes manageable:</p>
+    <ul>
+      <li><strong>Your software vendor or developer</strong> — access control, injection, insecure design, integrity failures, SSRF</li>
+      <li><strong>Your IT provider</strong> — misconfiguration, outdated components, authentication enforcement, logging and monitoring</li>
+      <li><strong>You, as the business</strong> — deciding which data matters, defining who should have access, and insisting somebody is accountable for each item above</li>
+    </ul>
+
+    <h2>Three questions worth asking this quarter</h2>
+    <ol>
+      <li>When was our web application last tested against the OWASP Top 10, and can I see the report?</li>
+      <li>If someone exploited our portal tonight, which log would show it and who reads that log?</li>
+      <li>Which third-party libraries are we running, and how quickly do they get patched?</li>
+    </ol>
+    <p>If nobody can answer these, that is the finding — and it is a better starting point than any product purchase.</p>
+
+    <div class="post-cta">
+      <h3>Want this checked on your environment?</h3>
+      <p>A free 30-minute assessment with a senior engineer covers every point above against your actual setup.</p>
+      <a href="contact.html#contact-form" class="btn btn-primary">Book a consultation
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</article>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo-block">
+        <a href="index.html" class="nav-logo" aria-label="Technauf — Cloud and Managed IT Services">
+          <svg class="logo-mark" viewBox="0 0 520 380" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="lgFoot" x1="0" y1="0" x2="520" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#2f7fff"/><stop offset="1" stop-color="#3fd9e8"/>
+          </linearGradient>
+        </defs>
+        <g stroke="url(#lgFoot)" stroke-width="26" stroke-linecap="round">
+          <path class="cloud-path" d="M150 300 H370 C 438 300 478 254 478 208 C 478 166 448 134 410 128 C 400 82 356 50 310 55 C 272 59 242 84 230 118"/>
+          <path class="speed-line" d="M40 178 H160 M205 178 H295"/>
+          <path class="speed-line" d="M20 222 H130 M175 222 H240"/>
+          <path class="speed-line" d="M55 262 H170 M215 262 H290"/>
+        </g>
+        <g fill="url(#lgFoot)">
+          <circle cx="40" cy="178" r="18"/><circle cx="20" cy="222" r="18"/><circle cx="55" cy="262" r="18"/>
+          <circle cx="428" cy="52" r="14"/><circle cx="470" cy="86" r="22"/>
+        </g>
+      </svg>
+          <span class="logo-text">
+            <span class="logo-word">TECHNAUF</span>
+            <span class="logo-sub">Cloud and Managed IT Services</span>
+          </span>
+        </a>
+        <p>Cloud, cybersecurity, network infrastructure, and managed IT for businesses across the Dallas–Fort Worth metroplex.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#cloud">Cloud Solutions</a></li>
+          <li><a href="services.html#security">Cybersecurity</a></li>
+          <li><a href="services.html#network">Network Infrastructure</a></li>
+          <li><a href="services.html#infrastructure">Servers &amp; Storage</a></li>
+          <li><a href="services.html#consulting">Consulting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="checklist.html">Free Security Checklist</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:info@technauf.com">info@technauf.com</a></li>
+          <li><p>Plano, Texas</p></li>
+        </ul>
+        <h5 style="margin-top:22px">Legal</h5>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Technauf. All rights reserved.</span>
+      <span>Proudly serving Dallas · Fort Worth · Plano · Frisco · Arlington · Irving</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/ui-sound.js"></script>
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>
