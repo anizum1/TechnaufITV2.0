@@ -25,6 +25,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.technauf.com/careers.html</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.technauf.com/contact.html</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
