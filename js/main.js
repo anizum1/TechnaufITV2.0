@@ -189,6 +189,15 @@
   }
   wireAccordion(".svc-cat-head", ".svc-category", ".svc-cat-body");
   wireAccordion(".faq-q", ".faq-item", ".faq-a");
+  wireAccordion(".job-q", ".job-item", ".job-a");
+
+  // Careers: "Apply for this role" preselects that job in the application form.
+  document.querySelectorAll(".job-apply").forEach(link => {
+    link.addEventListener("click", () => {
+      const select = document.querySelector("#a-role");
+      if (select) select.value = link.dataset.role;
+    });
+  });
 
   // Open first service category by default
   const firstCat = document.querySelector(".svc-category");
@@ -237,11 +246,11 @@
     if (img.complete && img.naturalWidth === 0) hide();
   });
 
-  /* ---------- Contact form ---------- */
+  /* ---------- Contact / application form ---------- */
   // Submits via fetch to the endpoint in the form's action attribute (Formspree
   // or compatible). Falls back to a normal browser POST/redirect if fetch fails,
   // so the form still works with JavaScript disabled.
-  const form = document.querySelector("#contact-form");
+  const form = document.querySelector("#contact-form, #apply-form");
   if (form && form.action) {
     form.addEventListener("submit", async e => {
       e.preventDefault();
@@ -257,7 +266,7 @@
           headers: { Accept: "application/json" }
         });
         if (res.ok) {
-          status.textContent = "✓ Message received. We'll reply from info@technauf.com within one business day.";
+          status.textContent = form.dataset.success || "✓ Message received. We'll reply from info@technauf.com within one business day.";
           form.reset();
         } else {
           const data = await res.json().catch(() => null);
