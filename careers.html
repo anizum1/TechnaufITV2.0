@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Security: Content-Security-Policy delivered via meta because GitHub Pages
+     cannot set HTTP response headers. If Google Analytics is enabled in
+     js/analytics.js, add https://www.googletagmanager.com to script-src and
+     https://www.google-analytics.com to connect-src. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google.com https://maps.gstatic.com https://*.googleusercontent.com; frame-src https://www.google.com; connect-src 'self' https://formspree.io; form-action https://formspree.io; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Careers — Technauf | IT &amp; Cybersecurity Jobs</title>
 <meta name="description" content="Careers at Technauf. Cloud, cybersecurity, network, and data center roles plus a paid student internship program, based in Plano, Texas, serving clients across the United States.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 380'%3E%3Cg stroke='%232f7fff' stroke-width='34' stroke-linecap='round' fill='none'%3E%3Cpath d='M150 300 H370 C438 300 478 254 478 208 C478 166 448 134 410 128 C400 82 356 50 310 55 C272 59 242 84 230 118'/%3E%3Cpath d='M40 178 H295 M20 222 H240 M55 262 H290'/%3E%3C/g%3E%3C/svg%3E">
@@ -688,6 +694,8 @@
     <p class="lede rv" style="margin-bottom:30px">One form for every role. We read each application ourselves — no keyword filter stands between you and a person.</p>
     <div class="form-panel rv">
       <form id="apply-form" action="https://formspree.io/f/mdenwrrg" method="POST" data-success="✓ Application received. We review every application ourselves and will be in touch if there's a fit.">
+        <!-- Honeypot: real users never see or fill this; Formspree drops submissions that do. -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <input type="hidden" name="_subject" value="New job application — Technauf website">
         <div class="form-grid">
           <div class="field"><label for="a-name">Name</label><input id="a-name" name="name" type="text" autocomplete="name" required placeholder="Alex Rivera"></div>

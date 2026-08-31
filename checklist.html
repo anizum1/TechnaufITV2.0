@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Security: Content-Security-Policy delivered via meta because GitHub Pages
+     cannot set HTTP response headers. If Google Analytics is enabled in
+     js/analytics.js, add https://www.googletagmanager.com to script-src and
+     https://www.google-analytics.com to connect-src. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google.com https://maps.gstatic.com https://*.googleusercontent.com; frame-src https://www.google.com; connect-src 'self' https://formspree.io; form-action https://formspree.io; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Free 10-Point IT Security Checklist — Technauf</title>
 <meta name="description" content="The same first-pass security checklist Technauf engineers run in every assessment. Ten checks you can complete yourself this week.">
 <link rel="canonical" href="https://www.technauf.com/checklist.html">
@@ -119,6 +125,8 @@
       <h2 class="panel-title">Where should we send it?</h2>
       <p class="panel-sub">Enter your email and the full checklist opens right here — no waiting on an inbox. We'll also email you a copy.</p>
       <form id="checklist-form" action="https://formspree.io/f/mdenwrrg" method="POST">
+        <!-- Honeypot: real users never see or fill this; Formspree drops submissions that do. -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <input type="hidden" name="_subject" value="Security checklist download — Technauf website">
         <input type="hidden" name="source" value="10-point security checklist">
         <div class="form-grid">

@@ -1,0 +1,11 @@
+# Technauf — security contact (RFC 9116)
+# https://www.technauf.com/.well-known/security.txt
+
+Contact: https://www.technauf.com/contact.html
+Expires: 2027-08-31T18:46:57.000Z
+Preferred-Languages: en
+Canonical: https://www.technauf.com/.well-known/security.txt
+
+# Report suspected vulnerabilities through the contact form above.
+# Please act in good faith: no data exfiltration, service disruption,
+# or privacy violations while testing.
