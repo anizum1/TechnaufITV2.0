@@ -94,8 +94,8 @@
     },
     {
       id: "service-area",
-      keywords: ["where", "location", "area", "dallas", "fort worth", "plano", "frisco", "arlington", "irving", "mckinney", "denton", "grapevine", "richardson", "on-site", "onsite"],
-      reply: "Technauf is based in Plano, Texas, with on-site engineers across the entire Dallas–Fort Worth metroplex — Dallas, Fort Worth, Plano, Frisco, McKinney, Arlington, Irving, Denton, Grapevine, and Richardson. Remote support is available nationwide.",
+      keywords: ["where", "location", "area", "nationwide", "national", "usa", "united states", "remote", "dallas", "fort worth", "plano", "texas", "on-site", "onsite"],
+      reply: "Technauf serves businesses across the United States. Remote monitoring, management, and support are delivered nationwide, and our engineers are headquartered in Plano, Texas. On-site visits are arranged wherever a client needs them.",
       chips: ["Book a consultation"]
     },
     {
@@ -131,7 +131,7 @@
     {
       id: "email",
       keywords: ["email", "e-mail", "contact you", "reach you", "your email"],
-      reply: 'You can reach us any time at <a href="mailto:info@technauf.com">info@technauf.com</a> — replies land within one business day. Or ' + contactLink("use the contact form") + ".",
+      reply: "The quickest way to reach us is the contact form — replies land within one business day. " + contactLink("Open the contact form") + ".",
       chips: ["Book a consultation"]
     },
     {
@@ -143,13 +143,13 @@
     {
       id: "human",
       keywords: ["human", "person", "real person", "engineer", "agent"],
-      reply: "Every inquiry lands with a real senior DFW-based engineer, not a call center. " + contactLink("Book a consultation") + " or email <a href=\"mailto:info@technauf.com\">info@technauf.com</a> and a person will reply within one business day.",
+      reply: "Every inquiry lands with a real senior US-based engineer, not a call center. " + contactLink("Book a consultation") + " and a person will reply within one business day.",
       chips: ["Book a consultation"]
     }
   ];
 
   var FALLBACK = {
-    reply: "I don't have a canned answer for that yet, but a real engineer can help directly — " + contactLink("book a free consultation") + " or email <a href=\"mailto:info@technauf.com\">info@technauf.com</a>.",
+    reply: "I don't have a canned answer for that yet, but a real engineer can help directly — " + contactLink("book a free consultation") + ".",
     chips: ["Our services", "Book a consultation", "Response time"]
   };
 
