@@ -266,16 +266,16 @@
           headers: { Accept: "application/json" }
         });
         if (res.ok) {
-          status.textContent = form.dataset.success || "✓ Message received. We'll reply from info@technauf.com within one business day.";
+          status.textContent = form.dataset.success || "✓ Message received. We'll reply within one business day.";
           form.reset();
         } else {
           const data = await res.json().catch(() => null);
           const msg = data && data.errors && data.errors.map(x => x.message).join(", ");
-          status.textContent = msg || "Something went wrong sending your message. Please email info@technauf.com directly.";
+          status.textContent = msg || "Something went wrong sending your message. Please try again in a moment.";
           status.style.color = "#c0392b";
         }
       } catch (err) {
-        status.textContent = "Couldn't reach the server. Please email info@technauf.com directly.";
+        status.textContent = "Couldn't reach the server. Please check your connection and try again.";
         status.style.color = "#c0392b";
       } finally {
         btn.disabled = false;
